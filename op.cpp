@@ -4,9 +4,9 @@
 #include <ctime>
 using namespace std;
 
-#define MAX 5
+#define MAX 100
 
-//¶¨ÒåÁªÏµÈË½á¹¹Ìå
+//å®šä¹‰è”ç³»äººç»“æ„ä½“
 struct LXR
 {
 	string name;
@@ -15,68 +15,68 @@ struct LXR
 	int number;
 };
 
-//¶¨ÒåÍ¨Ñ¶Â¼½á¹¹Ìå
+//å®šä¹‰é€šè®¯å½•ç»“æ„ä½“
 struct TXL
 {
 	struct LXR LXRarr[MAX];
 	int pernum;
 };
 
-//Ìí¼ÓÁªÏµÈË
+//æ·»åŠ è”ç³»äºº
 void addLXR(TXL* TXL1)
 {
 	if (TXL1->pernum >= MAX)
 	{
-		cout << "ÁªÏµÈËÊıÁ¿ÒÑ´ïÉÏÏŞ\n";
+		cout << "è”ç³»äººæ•°é‡å·²è¾¾ä¸Šé™\n";
 		system("pause");
 	}
 	else
 	{
-		//´´½¨
+		//åˆ›å»º
 	nameback:
 		string name;
-		cout << "ÇëÊäÈëÁªÏµÈËĞÕÃû£º";
+		cout << "è¯·è¾“å…¥è”ç³»äººå§“åï¼š";
 		cin >> name;
 		TXL1->LXRarr[TXL1->pernum].name = name;
-		//ĞÕÃû²éÖØ
+		//å§“åæŸ¥é‡
 		for (int i = 0; i < TXL1->pernum; i++)
 		{
 			if (TXL1->LXRarr[i].name == name)
 			{
-				cout << "¸ÃÁªÏµÈËÒÑ´æÔÚ\n";
+				cout << "è¯¥è”ç³»äººå·²å­˜åœ¨\n";
 				system("pause");
 				goto nameback;
 			}
 		}
 
 		int age;
-		cout << "ÇëÊäÈëÁªÏµÈËÄêÁä£º";
+		cout << "è¯·è¾“å…¥è”ç³»äººå¹´é¾„ï¼š";
 		cin >> age;
 		TXL1->LXRarr[TXL1->pernum].age = age;
 
 		string sex;
-		cout << "ÇëÊäÈëÁªÏµÈËĞÔ±ğ£º";
+		cout << "è¯·è¾“å…¥è”ç³»äººæ€§åˆ«ï¼š";
 		cin >> sex;
 		TXL1->LXRarr[TXL1->pernum].sex = sex;
 
 	numberback:
 		int number;
-		cout << "ÇëÊäÈëÁªÏµÈËºÅÂë£º";
+		cout << "è¯·è¾“å…¥è”ç³»äººå·ç ï¼š";
 		cin >> number;
 		TXL1->LXRarr[TXL1->pernum].number = number;
-		//ºÅÂë²éÖØ
+		//å·ç æŸ¥é‡
 		for (int i = 0; i < TXL1->pernum; i++)
 		{
 			if (TXL1->LXRarr[i].number == number)
 			{
-				cout << "¸ÃÁªÏµºÅÂë ÒÑ´æÔÚ\n";
+				cout << "è¯¥è”ç³»å·ç  å·²å­˜åœ¨\n";
 				system("pause");
 				goto numberback;
 			}
 		}
 
-		//È·ÈÏ
-		cout << "ÒÑ´´½¨ÁªÏµÈË£º\n";
+		//ç¡®è®¤
+		cout << "å·²åˆ›å»ºè”ç³»äººï¼š\n";
 		cout << TXL1->LXRarr[TXL1->pernum].name << " " << TXL1->LXRarr[TXL1->pernum].age << " ";
 		cout << TXL1->LXRarr[TXL1->pernum].sex << " " << TXL1->LXRarr[TXL1->pernum].number << "\n";
 		TXL1->pernum++;
@@ -85,17 +85,17 @@ void addLXR(TXL* TXL1)
 
 }
 
-//ÏÔÊ¾ÁªÏµÈË
+//æ˜¾ç¤ºè”ç³»äºº
 void showLXR(TXL* TXL1)
 {
 	if (TXL1->pernum == 0)
 	{
-		cout << "ÔİÎŞÁªÏµÈË\n";
+		cout << "æš‚æ— è”ç³»äºº\n";
 		system("pause");
 	}
 	else
 	{
-		cout << "¹²ÓĞ" << TXL1->pernum << "Î»ÁªÏµÈË\n";
+		cout << "å…±æœ‰" << TXL1->pernum << "ä½è”ç³»äºº\n";
 		for (int i = 0; i < TXL1->pernum; i++)
 		{
 			cout << TXL1->LXRarr[i].name << " " << TXL1->LXRarr[i].age << " " << TXL1->LXRarr[i].sex << " " << TXL1->LXRarr[i].number << "\n";
@@ -104,20 +104,20 @@ void showLXR(TXL* TXL1)
 	}
 }
 
-//É¾³ıÁªÏµÈË
+//åˆ é™¤è”ç³»äºº
 void delLXR(TXL* TXL1)
 {
-	//Ñ¡Ôñ
+	//é€‰æ‹©
 	int n = -1;
-	cout << "ÏÖÓĞÁªÏµÈË£º\n";
+	cout << "ç°æœ‰è”ç³»äººï¼š\n";
 	for (int i = 0; i < TXL1->pernum; i++)
 	{
 		cout << i << ":" << TXL1->LXRarr[i].name << "\n";
 	}
-	cout << "ÇëÊäÈëÒªÉ¾³ıµÄÁªÏµÈËµÄĞòºÅ£º";
+	cout << "è¯·è¾“å…¥è¦åˆ é™¤çš„è”ç³»äººçš„åºå·ï¼š";
 	cin >> n;
 
-	//É¾³ı
+	//åˆ é™¤
 
 	for (n; n < TXL1->pernum - 1; n++)
 	{
@@ -127,24 +127,24 @@ void delLXR(TXL* TXL1)
 	system("pause");
 }
 
-//²éÕÒÁªÏµÈË
+//æŸ¥æ‰¾è”ç³»äºº
 void seekLXR(TXL* TXL1)
 {
 seekstart:
-	//Ñ¡Ôñ°´ÕÕ**²éÕÒ
-	cout << "Ñ¡Ôñ²éÕÒ·½Ê½£º\n";
-	cout << "\t1¡¢°´ÕÕĞÕÃû²éÕÒ\n";
-	cout << "\t2¡¢°´ÕÕÄêÁä²éÕÒ\n";
-	cout << "\t3¡¢°´ÕÕĞÔ±ğ²éÕÒ\n";
-	cout << "\t4¡¢°´ÕÕºÅÂë²éÕÒ\n";
-	cout << "\t0¡¢ÍË³ö\n\n";
+	//é€‰æ‹©æŒ‰ç…§**æŸ¥æ‰¾
+	cout << "é€‰æ‹©æŸ¥æ‰¾æ–¹å¼ï¼š\n";
+	cout << "\t1ã€æŒ‰ç…§å§“åæŸ¥æ‰¾\n";
+	cout << "\t2ã€æŒ‰ç…§å¹´é¾„æŸ¥æ‰¾\n";
+	cout << "\t3ã€æŒ‰ç…§æ€§åˆ«æŸ¥æ‰¾\n";
+	cout << "\t4ã€æŒ‰ç…§å·ç æŸ¥æ‰¾\n";
+	cout << "\t0ã€é€€å‡º\n\n";
 	int n = -1;
 	cin >> n;
 	switch (n)
 	{
 	case 1:
 	{
-		cout << "ÇëÊäÈëĞèÒª²éÑ¯µÄĞÕÃû£º";
+		cout << "è¯·è¾“å…¥éœ€è¦æŸ¥è¯¢çš„å§“åï¼š";
 		string temname;
 		cin >> temname;
 		int k = 0;
@@ -152,13 +152,13 @@ seekstart:
 		{
 			if (TXL1->LXRarr[i].name == temname)
 			{
-				cout << "ÒÑÕÒµ½ÁªÏµÈË:\n";
+				cout << "å·²æ‰¾åˆ°è”ç³»äºº:\n";
 				cout << TXL1->LXRarr[i].name << " " << TXL1->LXRarr[i].age << " " << TXL1->LXRarr[i].sex << " " << TXL1->LXRarr[i].number << "\n";
 				k++;
 			}
 		}
 		if (k == 0)
-			cout << "Î´ÕÒµ½¶ÔÓ¦ÁªÏµÈË\n";
+			cout << "æœªæ‰¾åˆ°å¯¹åº”è”ç³»äºº\n";
 		system("pause");
 		system("cls");
 		goto seekstart;
@@ -166,7 +166,7 @@ seekstart:
 	}
 	case 2:
 	{
-		cout << "ÇëÊäÈëĞèÒª²éÑ¯µÄÄêÁä£º";
+		cout << "è¯·è¾“å…¥éœ€è¦æŸ¥è¯¢çš„å¹´é¾„ï¼š";
 		int temage;
 		cin >> temage;
 		int j = 1, k = 0;
@@ -176,7 +176,7 @@ seekstart:
 			{
 				while (j)
 				{
-					cout << "ÒÑÕÒµ½ÁªÏµÈË:\n";
+					cout << "å·²æ‰¾åˆ°è”ç³»äºº:\n";
 					j--;
 				}
 				cout << TXL1->LXRarr[i].name << " " << TXL1->LXRarr[i].age << " " << TXL1->LXRarr[i].sex << " " << TXL1->LXRarr[i].number << "\n";
@@ -184,7 +184,7 @@ seekstart:
 			}
 		}
 		if (k == 0)
-			cout << "Î´ÕÒµ½¶ÔÓ¦ÁªÏµÈË\n";
+			cout << "æœªæ‰¾åˆ°å¯¹åº”è”ç³»äºº\n";
 		system("pause");
 		system("cls");
 		goto seekstart;
@@ -192,7 +192,7 @@ seekstart:
 	}
 	case 3:
 	{
-		cout << "ÇëÊäÈëĞèÒª²éÑ¯µÄĞÔ±ğ£º";
+		cout << "è¯·è¾“å…¥éœ€è¦æŸ¥è¯¢çš„æ€§åˆ«ï¼š";
 		string temsex;
 		cin >> temsex;
 		int j = 1, k = 0;
@@ -202,7 +202,7 @@ seekstart:
 			{
 				while (j)
 				{
-					cout << "ÒÑÕÒµ½ÁªÏµÈË:\n";
+					cout << "å·²æ‰¾åˆ°è”ç³»äºº:\n";
 					j--;
 				}
 				cout << TXL1->LXRarr[i].name << " " << TXL1->LXRarr[i].age << " " << TXL1->LXRarr[i].sex << " " << TXL1->LXRarr[i].number << "\n";
@@ -210,7 +210,7 @@ seekstart:
 			}
 		}
 		if (k == 0)
-			cout << "Î´ÕÒµ½¶ÔÓ¦ÁªÏµÈË\n";
+			cout << "æœªæ‰¾åˆ°å¯¹åº”è”ç³»äºº\n";
 		system("pause");
 		system("cls");
 		goto seekstart;
@@ -218,7 +218,7 @@ seekstart:
 	}
 	case 4:
 	{
-		cout << "ÇëÊäÈëĞèÒª²éÑ¯µÄºÅÂë£º";
+		cout << "è¯·è¾“å…¥éœ€è¦æŸ¥è¯¢çš„å·ç ï¼š";
 		int temnumber;
 		cin >> temnumber;
 		int k = 0;
@@ -226,13 +226,13 @@ seekstart:
 		{
 			if (TXL1->LXRarr[i].number == temnumber)
 			{
-				cout << "ÒÑÕÒµ½ÁªÏµÈË:\n";
+				cout << "å·²æ‰¾åˆ°è”ç³»äºº:\n";
 				cout << TXL1->LXRarr[i].name << " " << TXL1->LXRarr[i].age << " " << TXL1->LXRarr[i].sex << " " << TXL1->LXRarr[i].number << "\n";
 				k++;
 			}
 		}
 		if (k == 0)
-			cout << "Î´ÕÒµ½¶ÔÓ¦ÁªÏµÈË\n";
+			cout << "æœªæ‰¾åˆ°å¯¹åº”è”ç³»äºº\n";
 		system("pause");
 		system("cls");
 		goto seekstart;
@@ -242,7 +242,7 @@ seekstart:
 		goto seekend;
 	default:
 	{
-		cout << "Çë°´ÉÏ±íÊäÈë\n";
+		cout << "è¯·æŒ‰ä¸Šè¡¨è¾“å…¥\n";
 		system("pause");
 		system("cls");
 		goto seekstart;
@@ -255,11 +255,11 @@ seekend:
 
 }
 
-//ĞŞ¸ÄÁªÏµÈË
+//ä¿®æ”¹è”ç³»äºº
 void changeLXR(TXL* TXL1)
 {
 changeback:
-	cout << "ÇëÊäÈëĞèÒªĞŞ¸ÄµÄÁªÏµÈËµÄĞÕÃû£º";
+	cout << "è¯·è¾“å…¥éœ€è¦ä¿®æ”¹çš„è”ç³»äººçš„å§“åï¼š";
 	string temname;
 	cin >> temname;
 	int k = 0, m = 0, n = 0;
@@ -273,7 +273,7 @@ changeback:
 	}
 	if (k == 0)
 	{
-		cout << "Î´ÕÒµ½¶ÔÓ¦ÁªÏµÈË\n";
+		cout << "æœªæ‰¾åˆ°å¯¹åº”è”ç³»äºº\n";
 		system("pause");
 		system("cls");
 		goto changeback;
@@ -282,78 +282,78 @@ changeback:
 	{
 	changeagain:
 		system("cls");
-		cout << "ĞŞ¸ÄÁªÏµÈË:\n";
+		cout << "ä¿®æ”¹è”ç³»äºº:\n";
 		cout << TXL1->LXRarr[m].name << " " << TXL1->LXRarr[m].age << " " << TXL1->LXRarr[m].sex << " " << TXL1->LXRarr[m].number << "\n";
-		cout << "ÇëÑ¡ÔñÒªĞŞ¸ÄµÄÏîÄ¿£º\n";
-		cout << "\t1¡¢ĞÕÃû\n";
-		cout << "\t2¡¢ÄêÁä\n";
-		cout << "\t3¡¢ĞÔ±ğ\n";
-		cout << "\t4¡¢ºÅÂë\n";
-		cout << "\t0¡¢ÍË³ö\n";
+		cout << "è¯·é€‰æ‹©è¦ä¿®æ”¹çš„é¡¹ç›®ï¼š\n";
+		cout << "\t1ã€å§“å\n";
+		cout << "\t2ã€å¹´é¾„\n";
+		cout << "\t3ã€æ€§åˆ«\n";
+		cout << "\t4ã€å·ç \n";
+		cout << "\t0ã€é€€å‡º\n";
 		cin >> n;
 		switch (n)
 		{
 		case 1:
 		{
-			cout << "ÇëÊäÈëĞŞ¸ÄºóµÄĞÕÃû£º";
+			cout << "è¯·è¾“å…¥ä¿®æ”¹åçš„å§“åï¼š";
 			string temname;
 			cin >> temname;
 			for (int j = 0; j <= TXL1->pernum; j++)
 			{
 				if (TXL1->LXRarr[j].name == temname)
 				{
-					cout << "ÁªÏµÈËĞÕÃûÖØ¸´\n";
+					cout << "è”ç³»äººå§“åé‡å¤\n";
 					system("pause");
 					system("cls");
 					goto changeagain;
 				}
 			}
 			TXL1->LXRarr[m].name = temname;
-			cout << "ĞŞ¸Ä³É¹¦\n";
+			cout << "ä¿®æ”¹æˆåŠŸ\n";
 			goto changeagain;
 		}
 		case 2:
 		{
-			cout << "ÇëÊäÈëĞŞ¸ÄºóµÄÄêÁä£º";
+			cout << "è¯·è¾“å…¥ä¿®æ”¹åçš„å¹´é¾„ï¼š";
 			int temage;
 			cin >> temage;
 			TXL1->LXRarr[m].age = temage;
-			cout << "ĞŞ¸Ä³É¹¦\n";
+			cout << "ä¿®æ”¹æˆåŠŸ\n";
 			goto changeagain;
 		}
 		case 3:
 		{
-			cout << "ÇëÊäÈëĞŞ¸ÄºóµÄĞÔ±ğ£º";
+			cout << "è¯·è¾“å…¥ä¿®æ”¹åçš„æ€§åˆ«ï¼š";
 			string temsex;
 			cin >> temsex;
 			TXL1->LXRarr[m].sex = temsex;
-			cout << "ĞŞ¸Ä³É¹¦\n";
+			cout << "ä¿®æ”¹æˆåŠŸ\n";
 			goto changeagain;
 		}
 		case 4:
 		{
-			cout << "ÇëÊäÈëĞŞ¸ÄºóµÄºÅÂë£º";
+			cout << "è¯·è¾“å…¥ä¿®æ”¹åçš„å·ç ï¼š";
 			int temnumber;
 			cin >> temnumber;
 			for (int j = 0; j <= TXL1->pernum; j++)
 			{
 				if (TXL1->LXRarr[j].name == temname)
 				{
-					cout << "ÁªÏµÈËºÅÂëÖØ¸´\n";
+					cout << "è”ç³»äººå·ç é‡å¤\n";
 					system("pause");
 					system("cls");
 					goto changeagain;
 				}
 			}
 			TXL1->LXRarr[m].number = temnumber;
-			cout << "ĞŞ¸Ä³É¹¦\n";
+			cout << "ä¿®æ”¹æˆåŠŸ\n";
 			goto changeagain;
 		}
 		case 0:
 			goto changeend;
 		default:
 		{
-			cout << "Çë°´ÉÏ±íÊäÈë\n";
+			cout << "è¯·æŒ‰ä¸Šè¡¨è¾“å…¥\n";
 			system("pause");
 			system("cls");
 			goto changeagain;
@@ -371,28 +371,28 @@ changeend:
 	k = 0;
 }
 
-//Çå¿ÕÁªÏµÈË
+//æ¸…ç©ºè”ç³»äºº
 void clearLXR(TXL* TXL1)
 {
 clearagain:
-	cout << "È·ÈÏÒªÇå¿ÕËùÓĞÁªÏµÈËÂğ?\n";
-	cout << "È·ÈÏÇëÊäÈëÑéÖ¤Âë,ÍË³öÇëÊäÈë¡°0¡±\n";
+	cout << "ç¡®è®¤è¦æ¸…ç©ºæ‰€æœ‰è”ç³»äººå—?\n";
+	cout << "ç¡®è®¤è¯·è¾“å…¥éªŒè¯ç ,é€€å‡ºè¯·è¾“å…¥â€œ0â€\n";
 	srand((unsigned int)time(NULL));
 	int yzm = rand() % 998 + 1;
 	int sryzm = 1000;
-	cout << "ÑéÖ¤Âë£º" << yzm << endl;
+	cout << "éªŒè¯ç ï¼š" << yzm << endl;
 	cin >> sryzm;
 	system("cls");
 	if (sryzm == yzm)
 	{
 		TXL1->pernum = 0;
-		cout << "ÒÑÇå¿ÕÁªÏµÈË";
+		cout << "å·²æ¸…ç©ºè”ç³»äºº";
 	}
 	else if (sryzm == 0)
 		goto clearend;
 	else
 	{
-		cout << "ÑéÖ¤Âë´íÎó£¬ÇëÖØĞÂÊäÈë\n";
+		cout << "éªŒè¯ç é”™è¯¯ï¼Œè¯·é‡æ–°è¾“å…¥\n";
 		system("cls");
 		goto clearagain;
 	}
@@ -403,76 +403,76 @@ clearend:
 
 int main()
 {
-	//±äÁ¿³õÊ¼»¯
+	//å˜é‡åˆå§‹åŒ–
 	int i = 0;
 	string a, c;
 	int b = 0, d = 0;
 	string p;
 
-	//´´½¨Í¨Ñ¶Â¼½á¹¹Ìå±äÁ¿
+	//åˆ›å»ºé€šè®¯å½•ç»“æ„ä½“å˜é‡
 	struct TXL TXL1;
 	TXL1.pernum = 0;
 
 	while (1)
 	{
-		//Æô¶¯½çÃæ
+		//å¯åŠ¨ç•Œé¢
 	mainstart:
 		{
 			system("cls");
 			cout << "*****" << "*************" << "*****\n";
-			cout << "*****" << "1¡¢Ìí¼ÓÁªÏµÈË" << "*****\n";
-			cout << "*****" << "2¡¢ÏÔÊ¾ÁªÏµÈË" << "*****\n";
-			cout << "*****" << "3¡¢É¾³ıÁªÏµÈË" << "*****\n";
-			cout << "*****" << "4¡¢²éÕÒÁªÏµÈË" << "*****\n";
-			cout << "*****" << "5¡¢ĞŞ¸ÄÁªÏµÈË" << "*****\n";
-			cout << "*****" << "6¡¢Çå¿ÕÁªÏµÈË" << "*****\n";
-			cout << "*****" << "0¡¢ÍË³öÍ¨Ñ¶Â¼" << "*****\n";
+			cout << "*****" << "1ã€æ·»åŠ è”ç³»äºº" << "*****\n";
+			cout << "*****" << "2ã€æ˜¾ç¤ºè”ç³»äºº" << "*****\n";
+			cout << "*****" << "3ã€åˆ é™¤è”ç³»äºº" << "*****\n";
+			cout << "*****" << "4ã€æŸ¥æ‰¾è”ç³»äºº" << "*****\n";
+			cout << "*****" << "5ã€ä¿®æ”¹è”ç³»äºº" << "*****\n";
+			cout << "*****" << "6ã€æ¸…ç©ºè”ç³»äºº" << "*****\n";
+			cout << "*****" << "0ã€é€€å‡ºé€šè®¯å½•" << "*****\n";
 			cout << "*****" << "*************" << "*****\n";
 		}
 
-		//¹¦ÄÜÑ¡Ôñ
+		//åŠŸèƒ½é€‰æ‹©
 		while (1)
 		{
 			cin >> i;
 			switch (i)
 			{
-			case 1://Ìí¼ÓÁªÏµÈË
+			case 1://æ·»åŠ è”ç³»äºº
 			{
 				system("cls");
 				addLXR(&TXL1);
 				goto mainstart;
 			}
-			case 2://ÏÔÊ¾ÁªÏµÈË
+			case 2://æ˜¾ç¤ºè”ç³»äºº
 			{
 				system("cls");
 				showLXR(&TXL1);
 				goto mainstart;
 			}
-			case 3://É¾³ıÁªÏµÈË
+			case 3://åˆ é™¤è”ç³»äºº
 			{
 				system("cls");
 				delLXR(&TXL1);
 				goto mainstart;
 			}
-			case 4://²éÕÒÁªÏµÈË
+			case 4://æŸ¥æ‰¾è”ç³»äºº
 			{
 				system("cls");
 				seekLXR(&TXL1);
 				goto mainstart;
 			}
-			case 5://ĞŞ¸ÄÁªÏµÈË
+			case 5://ä¿®æ”¹è”ç³»äºº
 			{
 				system("cls");
 				changeLXR(&TXL1);
 				goto mainstart;
 			}
-			case 6://Çå¿ÕÁªÏµÈË
+			case 6://æ¸…ç©ºè”ç³»äºº
 			{
 				system("cls");
 				clearLXR(&TXL1);
 				goto mainstart;
 			}
-			case 0://ÍË³öÍ¨Ñ¶Â¼
+			case 0://é€€å‡ºé€šè®¯å½•
 			{
 				goto mainend;
 			}
@@ -482,5 +482,5 @@ int main()
 		}
 	}
 mainend:
-	cout << "°´ÈÎÒâ¼üÍË³ö";
+	cout << "æŒ‰ä»»æ„é”®é€€å‡º";
 }
